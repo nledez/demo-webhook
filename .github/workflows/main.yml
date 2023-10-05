@@ -18,8 +18,9 @@ jobs:
         run: |
             echo "Hello ${{ github.actor }}"
             echo "The ${{ github.event_name }} event triggered this workflow"
-            echo "TOTO=1.0.2"
-            echo "TITI=1.0.3"
+            echo "TOTO=1.0.2" >> $GITHUB_OUTPUT
+            echo "TITI=1.0.3" >> $GITHUB_OUTPUT
       - name: Get the output time
         run: |
-          echo "Outputs was ${{ steps.get-versions.outputs }}"
+          echo "TOTO was ${{ steps.get-versions.outputs.TOTO }}"
+          echo "TITI was ${{ steps.get-versions.outputs.TITI }}"
