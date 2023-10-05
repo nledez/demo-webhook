@@ -13,3 +13,13 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Shell command
+        id: get-versions
+        run: |
+            echo "Hello ${{ github.actor }}"
+            echo "The ${{ github.event_name }} event triggered this workflow"
+            echo "TOTO=1.0.2"
+            echo "TITI=1.0.3"
+      - name: Get the output time
+        run: |
+          echo "Outputs was ${{ steps.get-versions.outputs }}"
