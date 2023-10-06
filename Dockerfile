@@ -31,6 +31,6 @@ COPY --from=builder /app/.venv /app/.venv
 RUN chmod +x /entrypoint.sh &&\
     find /app/sandbox -name __pycache__ | xargs rm -rf
 
-# USER nobody
+USER nobody
 EXPOSE 8000
 CMD ["/entrypoint.sh"]
