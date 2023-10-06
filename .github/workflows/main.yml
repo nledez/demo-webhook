@@ -55,7 +55,7 @@ jobs:
         run: |
           export CONTAINER_NAME=sandbox
 
-          docker container run --platform=linux/amd64 -d --init -p 80:80 --rm --name ${CONTAINER_NAME} nledez/sandbox:latest
+          docker container run --platform=linux/amd64 -d --init -p 80:8000 --rm --name ${CONTAINER_NAME} nledez/sandbox:latest
           sleep 10
           curl -s http://127.0.0.1:80/version | grep "${SANDBOX_VERSION}" || curl -v http://127.0.0.1:80/version
           docker kill ${CONTAINER_NAME}
