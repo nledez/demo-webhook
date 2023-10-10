@@ -14,4 +14,4 @@ def test_read_main():
 def test_read_version():
     response = client.get("/version")
     assert response.status_code == 200
-    assert response.json() == {"version": "0.1.0"}
+    assert response.json() == {"version": "0.1.3"}
