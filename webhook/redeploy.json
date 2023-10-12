@@ -1,0 +1,31 @@
+[
+  {
+    "id": "redeploy-webhook",
+    "execute-command": "/home/ubuntu/redeploy.sh",
+    "command-working-directory": "/home/ubuntu",
+    "trigger-rule": {
+      "and": [
+        "match": {
+          "type": "payload-hmac-sha1",
+            "secret": "XXX",
+            "parameter":
+            {
+              "source": "header",
+              "name": "X-Hub-Signature"
+            }
+          },
+	  {
+          "match": {
+            "type": "value",
+            "value": "completed",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "action"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
